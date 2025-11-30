@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-[#0f0b0b] text-white;
+  font-family: "Poppins", sans-serif;
+}
