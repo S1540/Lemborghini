@@ -1,17 +1,40 @@
 import React from "react";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import animationData from "../../assets/Lights purple.json";
 import HomeCard from "../Cards/HomeCard";
-import lembo3 from "../../assets/Lembo-3.jpg";
+import lambo3 from "../../assets/Lembo-3.jpg";
+import lambo4 from "../../assets/Lambo-4.jpg";
+import lambo5 from "../../assets/Lambo-5.jpg";
 
 const HomePage = () => {
   const topThreeModels = [
     {
-      image: lembo3,
+      image: lambo3,
       model: "AVENTADOR",
       tagline: "The Ultimate V12",
       power: "740 HP",
       speed: "355 km/h",
       acceleration: "2.8s",
       price: "₹6.25 Cr",
+    },
+    {
+      image: lambo4,
+      model: "HURACÁN",
+      tagline: "Precision in Motion",
+      power: "650 HP",
+      speed: "325 km/h",
+      acceleration: "2.9s",
+      price: "₹4.75 Cr",
+    },
+    {
+      image: lambo5,
+      model: "URUS",
+      tagline: "The Super SUV",
+      power: "600 HP",
+      speed: "305 km/h",
+      acceleration: "3.6s",
+      price: "₹3.50 Cr",
     },
   ];
 
@@ -46,7 +69,27 @@ const HomePage = () => {
         </p>
       </div>
       {/* Cards */}
-      <HomeCard />
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto px-2 relative">
+        <div className="absolute top-0  blur-md animate-pulse"></div>
+        {topThreeModels.map((model, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <HomeCard
+              image={model.image}
+              model={model.model}
+              tagline={model.tagline}
+              power={model.power}
+              speed={model.speed}
+              acceleration={model.acceleration}
+              price={model.price}
+            />
+          </motion.div>
+        ))}
+      </div>
     </>
   );
 };
