@@ -18,24 +18,24 @@ const HomePage = () => {
       acceleration: "2.8s",
       price: "₹6.25 Cr",
     },
-    {
-      image: lambo4,
-      model: "HURACÁN",
-      tagline: "Precision in Motion",
-      power: "650 HP",
-      speed: "325 km/h",
-      acceleration: "2.9s",
-      price: "₹4.75 Cr",
-    },
-    {
-      image: lambo5,
-      model: "URUS",
-      tagline: "The Super SUV",
-      power: "600 HP",
-      speed: "305 km/h",
-      acceleration: "3.6s",
-      price: "₹3.50 Cr",
-    },
+    // {
+    //   image: lambo4,
+    //   model: "HURACÁN",
+    //   tagline: "Precision in Motion",
+    //   power: "650 HP",
+    //   speed: "325 km/h",
+    //   acceleration: "2.9s",
+    //   price: "₹4.75 Cr",
+    // },
+    // {
+    //   image: lambo5,
+    //   model: "URUS",
+    //   tagline: "The Super SUV",
+    //   power: "600 HP",
+    //   speed: "305 km/h",
+    //   acceleration: "3.6s",
+    //   price: "₹3.50 Cr",
+    // },
   ];
 
   return (
@@ -69,7 +69,7 @@ const HomePage = () => {
         </p>
       </div>
       {/* Cards */}
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto px-2 relative">
+      <div className="max-w-full w-full gap-4 mx-auto px-2 relative">
         <div className="absolute top-0  blur-md animate-pulse"></div>
         {topThreeModels.map((model, index) => (
           <motion.div
@@ -79,13 +79,13 @@ const HomePage = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <HomeCard
-              image={model.image}
-              model={model.model}
-              tagline={model.tagline}
-              power={model.power}
-              speed={model.speed}
-              acceleration={model.acceleration}
-              price={model.price}
+            // image={model.image}
+            // model={model.model}
+            // tagline={model.tagline}
+            // power={model.power}
+            // speed={model.speed}
+            // acceleration={model.acceleration}
+            // price={model.price}
             />
           </motion.div>
         ))}

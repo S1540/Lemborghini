@@ -7,3 +7,7 @@ body {
 .heading {
   font-family: Maven Pro;
 }
+.model-heading {
+  font-family: Orbitron;
+  font-weight: 900;
+}
