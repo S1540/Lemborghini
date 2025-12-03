@@ -40,7 +40,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="text-center py-12 md:py-16">
+      <div className="text-center pt-12 pb-6  md:py-16">
         {/* Badge + Heading + Line - Single Row */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
           <div className="hidden md:block h-px w-20 lg:w-32 bg-linear-to-r from-transparent via-orange-500 to-orange-500" />

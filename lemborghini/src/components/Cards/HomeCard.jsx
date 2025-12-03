@@ -43,7 +43,7 @@ const HomeCard = () => {
   };
 
   return (
-    <div className="relative w-full h-[300px] sm:h-[500px] rounded-lg overflow-hidden group">
+    <div className="relative w-full h-[300px] sm:h-[450px] md:h-[500px] rounded-lg overflow-hidden group">
       {/* Images */}
       <div className="relative h-full">
         {models.map((model, index) => (
@@ -54,12 +54,37 @@ const HomeCard = () => {
             }`}
           >
             {" "}
-            <p className=" text-2xl sm:text-3xl text-center model-heading tracking-widest">
+            <p className=" text-2xl  sm:text-3xl text-center model-heading tracking-widest">
               {model.model}
             </p>
             <p className="text-3xl sm:text-5xl text-center text-zinc-500 heading font-medium">
               {model.tagline}
             </p>
+            <button className=" sm:hidden absolute top-20 left-1/2 transform -translate-x-1/2 py-2 px-4 border border-white rounded-full hover:bg-white hover:text-black transition duration-300 ">
+              Explore
+            </button>
+            <button className="hidden sm:block absolute top-0 right-10 py-3 px-6 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black text-sm uppercase tracking-wider rounded-lg border-2 border-orange-500/50 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 max-w-44 w-full group overflow-hidden transform origin-top-right cursor-pointer">
+              {/* Hover Gradient Effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" />
+
+              {/* Text */}
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Explore
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </span>
+            </button>
             <img
               src={model.image}
               className="w-full sm:max-w-[75%] sm:w-full h-full object-contain mx-auto"
