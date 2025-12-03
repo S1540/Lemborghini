@@ -60,9 +60,6 @@ const HomeCard = () => {
             <p className="text-3xl sm:text-5xl text-center text-zinc-500 heading font-medium">
               {model.tagline}
             </p>
-            <button className=" sm:hidden absolute top-20 left-1/2 transform -translate-x-1/2 py-2 px-4 border border-white rounded-full hover:bg-white hover:text-black transition duration-300 ">
-              Explore
-            </button>
             <button className="hidden sm:block absolute top-0 right-10 py-3 px-6 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black text-sm uppercase tracking-wider rounded-lg border-2 border-orange-500/50 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 max-w-44 w-full group overflow-hidden transform origin-top-right cursor-pointer">
               {/* Hover Gradient Effect */}
               <span className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" />
