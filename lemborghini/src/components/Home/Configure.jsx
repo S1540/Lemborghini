@@ -24,7 +24,7 @@ const Configure = () => {
 
   return (
     <>
-      <section className="py-10 md:py-16">
+      <section className="py-8 md:py-16">
         {/* Model Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -97,15 +97,15 @@ const Configure = () => {
 
           {/* Right Column - Image */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, x: 160 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2 }}
             className="relative"
           >
             <div className="absolute inset-0 bg-linear-to-r from-orange-500/20 to-red-500/20 blur-3xl opacity-50 animate-pulse" />
             <img
               src={currentActive.image}
-              alt={active}
+              alt={currentActive.name}
               className="relative w-full h-auto object-contain transition-all duration-500 hover:scale-105"
             />
           </motion.div>

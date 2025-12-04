@@ -4,6 +4,7 @@ import urus from "../../assets/urus.webp";
 import Huracan from "../../assets/Huracan.webp";
 import Temerario from "../../assets/Temerario.webp";
 import Revuelto from "../../assets/Revuelto.webp";
+import { motion } from "framer-motion";
 
 const HomeCard = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,11 +83,18 @@ const HomeCard = () => {
                 </svg>
               </span>
             </button>
-            <img
-              src={model.image}
-              className="w-full sm:max-w-[75%] sm:w-full h-full object-contain mx-auto"
-              alt={`Slide ${index + 1}`}
-            />
+            <motion.div
+              initial={{ opacity: 0, x: -160 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2 }}
+              className="w-full sm:max-w-[85%] h-full mx-auto"
+            >
+              <img
+                src={model.image}
+                className="w-full sm:max-w-[85%] sm:w-full h-full object-contain mx-auto"
+                alt={`Slide ${index + 1}`}
+              />
+            </motion.div>
           </div>
         ))}
       </div>

@@ -7,6 +7,7 @@ import lambo3 from "../../assets/Lembo-3.jpg";
 import lambo4 from "../../assets/Lambo-4.jpg";
 import lambo5 from "../../assets/Lambo-5.jpg";
 import Configure from "./Configure";
+import Gallery from "./Gallery";
 
 const HomePage = () => {
   const topThreeModels = [
@@ -72,24 +73,13 @@ const HomePage = () => {
       {/* Cards */}
       <div className="max-w-full w-full gap-4 mx-auto px-2 relative">
         <div className="absolute top-0  blur-md animate-pulse"></div>
-        {topThreeModels.map((model, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
-            <HomeCard
-            // image={model.image}
-            // model={model.model}
-            // tagline={model.tagline}
-            // power={model.power}
-            // speed={model.speed}
-            // acceleration={model.acceleration}
-            // price={model.price}
-            />
-          </motion.div>
-        ))}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <HomeCard />
+        </motion.div>
       </div>
       {/* Why Lamborghini */}
       <section className="relative w-full bg-gray-900 text-white py-24 px-4 overflow-hidden">
@@ -144,20 +134,6 @@ const HomePage = () => {
             </button>
           </div>
         </motion.div>
-
-        {/* Decorative Animation */}
-        <motion.div
-          className="absolute top-4 right-0 w-40 sm:w-56 md:w-72 lg:w-96 opacity-20 pointer-events-none"
-          initial={{ scale: 0.7 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
-        >
-          <Lottie animationData={animationData} loop={true} />
-        </motion.div>
       </section>
       {/* Showroom section*/}
       <section>
@@ -210,6 +186,7 @@ const HomePage = () => {
         </motion.div>
       </section>
       <Configure />
+      <Gallery />
     </>
   );
 };
