@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 
 const Gallery = () => {
   const [showModel, setShowModel] = useState("Aventador");
+  const [showMenu, setShowMenu] = useState(false);
   const currentModel = models.find((model) => model.name === showModel);
 
   const getImageClass = (index) => {
@@ -40,7 +41,10 @@ const Gallery = () => {
               </span>
             </div>
             {/* Menu */}
-            <Menu className="sm:hidden" />
+            <Menu
+              onClick={() => setShowMenu(!showMenu)}
+              className="sm:hidden"
+            />
           </div>
 
           {/* Main Heading */}
@@ -57,10 +61,14 @@ const Gallery = () => {
 
         {/* Content Section */}
         <div className="max-w-full w-full pl-6 md:pl-20 mx-auto px-6 relative py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
             {/* Left Sidebar */}
-            <div className="hidden lg:block lg:col-span-3 lg:sticky lg:top-24 h-fit">
-              <div className="p-6 bg-linear-to-br from-orange-500/5 via-red-500/5 to-transparent backdrop-blur-xl rounded-2xl border border-orange-500/20 shadow-2xl">
+            <div
+              className={`lg:block lg:col-span-3 lg:sticky lg:top-24 h-fit transition-all duration-300 ease-in-out origin-top ${
+                showMenu ? "block sticky top-40 z-40 bg-black/60 " : "hidden"
+              }`}
+            >
+              <div className="p-6 bg-linear-to-br from-orange-500/5 via-red-500/5 to-transparent backdrop-blur-xl rounded-lg border border-orange-500/20 shadow-2xl">
                 <h3 className="font-black tracking-widest text-xl mb-6 bg-linear-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                   COLLECTIONS
                 </h3>
@@ -73,8 +81,10 @@ const Gallery = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <button
-                        onClick={() => setShowModel(model.name)}
-                        className={`w-full text-left px-4 py-3 rounded-xl font-bold tracking-wide transition-all duration-300 ${
+                        onClick={() =>
+                          setShowModel(model.name) || setShowMenu(false)
+                        }
+                        className={`w-full text-left px-4 py-3 rounded-lg font-bold tracking-wide transition-all duration-300 ${
                           showModel === model.name
                             ? "bg-linear-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/30"
                             : "text-gray-400 hover:text-orange-400 hover:bg-white/5"
@@ -101,7 +111,13 @@ const Gallery = () => {
             </div>
 
             {/* Right Side - Masonry Gallery */}
-            <div className="lg:col-span-9 pb-24 lg:pb-0">
+            <motion.div
+              key={showModel}
+              initial={{ opacity: 0, y: 160 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-9 pb-24 lg:pb-0"
+            >
               {currentModel && (
                 <motion.div
                   key={showModel}
@@ -116,7 +132,7 @@ const Gallery = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className={`group relative overflow-hidden rounded-2xl ${getImageClass(
+                      className={`group relative overflow-hidden rounded-lg ${getImageClass(
                         index
                       )} cursor-pointer`}
                     >
@@ -137,12 +153,12 @@ const Gallery = () => {
                         </p>
                       </div>
 
-                      <div className="absolute inset-0 border-2 border-orange-500/0 group-hover:border-orange-500/50 rounded-2xl transition-all duration-500" />
+                      <div className="absolute inset-0 border-2 border-orange-500/0 group-hover:border-orange-500/50 rounded-lg transition-all duration-500" />
                     </motion.div>
                   ))}
                 </motion.div>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
