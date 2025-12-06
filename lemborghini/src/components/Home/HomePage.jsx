@@ -8,6 +8,7 @@ import lambo4 from "../../assets/Lambo-4.jpg";
 import lambo5 from "../../assets/Lambo-5.jpg";
 import Configure from "./Configure";
 import Gallery from "./Gallery";
+import Contact from "./Contact";
 
 const HomePage = () => {
   const topThreeModels = [
@@ -187,6 +188,7 @@ const HomePage = () => {
       </section>
       <Configure />
       <Gallery />
+      <Contact />
     </>
   );
 };

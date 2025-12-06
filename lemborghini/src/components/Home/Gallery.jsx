@@ -22,7 +22,7 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="min-h-screen py-10  relative">
+      <section className="min-h-screen py-10 relative">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -33,7 +33,7 @@ const Gallery = () => {
           <div className="hidden md:block h-px w-20 lg:w-32 bg-linear-to-r from-transparent via-orange-500 to-orange-500" />
 
           {/* Badge */}
-          <div className="flex sm:flex-none justify-between max-w-full sm:w-auto w-full px-6 ">
+          <div className="flex md:flex-none justify-between max-w-full md:w-auto w-full px-6 ">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-linear-to-r from-orange-500/20 to-red-500/20 backdrop-blur-xl rounded-full border border-orange-500/40">
               <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
               <span className="text-orange-100 font-bold text-xs tracking-wider uppercase">
@@ -43,7 +43,7 @@ const Gallery = () => {
             {/* Menu */}
             <Menu
               onClick={() => setShowMenu(!showMenu)}
-              className="sm:hidden"
+              className="md:hidden cursor-pointer"
             />
           </div>
 
@@ -64,7 +64,7 @@ const Gallery = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
             {/* Left Sidebar */}
             <div
-              className={`lg:block lg:col-span-3 lg:sticky lg:top-24 h-fit transition-all duration-300 ease-in-out origin-top ${
+              className={`md:block lg:col-span-3 lg:sticky lg:top-24 h-fit transition-all duration-300 ease-in-out origin-top ${
                 showMenu ? "block sticky top-40 z-40 bg-black/60 " : "hidden"
               }`}
             >
