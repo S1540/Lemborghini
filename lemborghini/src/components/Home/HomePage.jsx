@@ -1,49 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import animationData from "../../assets/Lights purple.json";
 import HomeCard from "../Cards/HomeCard";
 import lambo3 from "../../assets/Lembo-3.jpg";
-import lambo4 from "../../assets/Lambo-4.jpg";
-import lambo5 from "../../assets/Lambo-5.jpg";
+// import lambo4 from "../../assets/Lambo-4.jpg";
+// import lambo5 from "../../assets/Lambo-5.jpg";
 import Configure from "./Configure";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
 
-const HomePage = () => {
-  const topThreeModels = [
-    {
-      image: lambo3,
-      model: "AVENTADOR",
-      tagline: "The Ultimate V12",
-      power: "740 HP",
-      speed: "355 km/h",
-      acceleration: "2.8s",
-      price: "₹6.25 Cr",
-    },
-    // {
-    //   image: lambo4,
-    //   model: "HURACÁN",
-    //   tagline: "Precision in Motion",
-    //   power: "650 HP",
-    //   speed: "325 km/h",
-    //   acceleration: "2.9s",
-    //   price: "₹4.75 Cr",
-    // },
-    // {
-    //   image: lambo5,
-    //   model: "URUS",
-    //   tagline: "The Super SUV",
-    //   power: "600 HP",
-    //   speed: "305 km/h",
-    //   acceleration: "3.6s",
-    //   price: "₹3.50 Cr",
-    // },
-  ];
-
+const HomePage = ({ modelRef, configureRef, galleryRef, contactRef }) => {
   return (
     <>
-      <div className="text-center pt-12 pb-6  md:py-16">
+      <div ref={modelRef} className="text-center pt-12 pb-6  md:py-16">
         {/* Badge + Heading + Line - Single Row */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
           <div className="hidden md:block h-px w-20 lg:w-32 bg-linear-to-r from-transparent via-orange-500 to-orange-500" />
@@ -186,9 +156,9 @@ const HomePage = () => {
           </div>
         </motion.div>
       </section>
-      <Configure />
-      <Gallery />
-      <Contact />
+      <Configure configureRef={configureRef} />
+      <Gallery galleryRef={galleryRef} />
+      <Contact contactRef={contactRef} />
     </>
   );
 };

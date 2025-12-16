@@ -4,7 +4,7 @@ import revuelto from "../../assets/configure-revuelto.webp";
 import temerario from "../../assets/configure-temerario.webp";
 import urus from "../../assets/configure-urus.webp";
 
-const Configure = () => {
+const Configure = ({ configureRef }) => {
   const [active, setActive] = useState("REVUELTO");
   const models = [
     {
@@ -24,7 +24,7 @@ const Configure = () => {
 
   return (
     <>
-      <section className="py-8 md:py-16">
+      <section ref={configureRef} className="py-8 md:py-16">
         {/* Model Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}

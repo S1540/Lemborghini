@@ -1,25 +1,25 @@
 import React from "react";
 
-const ArticlesCard = () => {
+const ArticlesCard = ({ image, title, date, tags }) => {
   return (
     <>
       <div className="max-w-xl w-full flex flex-col gap-4 py-10 ">
         {/* Image */}
         <div className="relative overflow-hidden rounded-lg group cursor-pointer">
           <img
-            src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/motorsport/news/2025/12_01_turin/cover.jpg"
+            src={image}
             alt="Lamborghini Article"
             className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Content */}
         <div className="flex flex-col gap-3 px-2">
           {/* Tags */}
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-sm text-orange-400 text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 bg-linear-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-sm text-orange-400 text-xs font-bold uppercase tracking-wider">
               Articles
             </span>
             <span className="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded-sm text-gray-300 text-xs font-semibold uppercase tracking-wider">
@@ -28,11 +28,11 @@ const ArticlesCard = () => {
           </div>
 
           {/* Date */}
-          <p className="text-gray-400 text-sm font-medium">23 February 2025</p>
+          <p className="text-gray-400 text-sm font-medium">{date}</p>
 
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight hover:text-orange-400 transition-colors duration-300 cursor-pointer">
-            Turin Motor Show 1965: the chassis that ignited the Miura legend
+            {title}
           </h2>
 
           {/* Optional Read More Link */}

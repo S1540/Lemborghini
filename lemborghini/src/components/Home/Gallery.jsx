@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import models from "./models.json";
 import { Menu } from "lucide-react";
 
-const Gallery = () => {
+const Gallery = ({ galleryRef }) => {
   const [showModel, setShowModel] = useState("Aventador");
   const [showMenu, setShowMenu] = useState(false);
   const currentModel = models.find((model) => model.name === showModel);
@@ -22,7 +22,7 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="min-h-screen py-10 relative">
+      <section ref={galleryRef} className="min-h-screen py-10 relative">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
